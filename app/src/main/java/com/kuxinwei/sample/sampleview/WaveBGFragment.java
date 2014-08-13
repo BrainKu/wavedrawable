@@ -26,6 +26,7 @@ public class WaveBGFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_wave_bg, container, false);
         WaveDrawable mDrawable = new WaveDrawable(getActivity());
         root.setBackground(mDrawable);
+        // it needed since it will control by View
         mDrawable.setCallback(root);
         mDrawable.start();
         return root;

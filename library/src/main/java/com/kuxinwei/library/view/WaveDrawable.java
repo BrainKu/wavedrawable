@@ -1,6 +1,5 @@
 package com.kuxinwei.library.view;
 
-import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -24,7 +23,7 @@ import android.view.animation.LinearInterpolator;
 
 /**
  * Created by kuxinwei on 2014/8/13.
- * An drawable would show an wave drawable
+ * An drawable would show an wave drawable.
  */
 public class WaveDrawable extends Drawable implements Animatable {
 
@@ -35,16 +34,16 @@ public class WaveDrawable extends Drawable implements Animatable {
     private ObjectAnimator mXObjectAnimator;
     private ObjectAnimator mYObjectAnimator;
 
-    private Paint mPaint;
+    private BitmapShader mBitmapShader;
     private Drawable mWaveDrawable;
     private Matrix mWaveMatrix;
+    private RectF fBounds = new RectF();
+    private Paint mPaint;
     private float maskX;
     private float maskY;
 
-    private RectF fBounds = new RectF();
-
     private boolean isSinking;
-    private BitmapShader mBitmapShader;
+
 
     public WaveDrawable(Context context) {
         isSinking = true;
@@ -79,8 +78,8 @@ public class WaveDrawable extends Drawable implements Animatable {
         c.drawColor(Color.WHITE);
 
         mWaveDrawable.setBounds(0, 0, mWaveW, mWaveH);
-        ColorFilter cf = new LightingColorFilter(Color.BLUE, 1);
-        mWaveDrawable.setColorFilter(cf);
+        ColorFilter mColorFilter = new LightingColorFilter(Color.BLUE, 1);
+        mWaveDrawable.setColorFilter(mColorFilter);
         mWaveDrawable.setAlpha(127);
         mWaveDrawable.draw(c);
         mBitmapShader = new BitmapShader(b, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP);
@@ -136,6 +135,7 @@ public class WaveDrawable extends Drawable implements Animatable {
         fBounds.set(bounds.left, bounds.top, bounds.right, bounds.bottom);
         setUpMaskYAnimation(fBounds);
     }
+
 
     @Override
     public void draw(Canvas canvas) {
