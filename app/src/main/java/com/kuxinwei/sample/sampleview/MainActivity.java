@@ -5,18 +5,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.kuxinwei.library.view.TitanicView;
-import com.kuxinwei.library.view.TitanicViewAnimation;
-
-
 public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		TitanicView tv = (TitanicView) findViewById(R.id.titan_view);
-		new TitanicViewAnimation().start(tv);
+        getFragmentManager().beginTransaction().replace(R.id.container, new WaveBGFragment()).commit();
 	}
 
 	@Override

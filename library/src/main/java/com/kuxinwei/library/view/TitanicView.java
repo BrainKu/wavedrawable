@@ -112,8 +112,6 @@ public class TitanicView extends View {
 			mWaveDrawable = getResources().getDrawable(R.drawable.wave);
 		}
 
-		Log.d("CALL", (mWaveDrawable instanceof BitmapDrawable) + "");
-
 		int waveH = mWaveDrawable.getIntrinsicHeight();
 		int waveW = mWaveDrawable.getIntrinsicWidth();
 
@@ -152,7 +150,6 @@ public class TitanicView extends View {
 		if (sinking && mWaveShader != null) {
 			mShaderMatrix.setTranslate(maskX, maskY);
 			mWaveShader.setLocalMatrix(mShaderMatrix);
-			mPaint.setShader(mWaveShader);
 		} else {
 			mPaint.setShader(null);
 		}
