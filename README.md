@@ -1,7 +1,7 @@
 wavedrawable
 ============
 
-a custom view by reference TitanicTextView
+a custom view by reference [Titanic](https://github.com/RomainPiel/Titanic)
 
 an view with wave background.
 
